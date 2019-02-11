@@ -1,0 +1,271 @@
+import javax.swing.*;
+import java.time.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class mrDoctor implements ActionListener {
+
+    JFrame frame1;
+    JTextField userName,password;
+    JLabel userNamel,passwordl,createAccountl,entry;
+    JButton login,register;
+    
+    JFrame frame2;
+    JTextField email,firstName,lastName,adress,city,birthyear,age,password2;
+    JLabel emaill,firstNamel,lastNamel,adressl,cityl,birthyearl,agel,genderl,password2l;
+    JButton submit,calculator;
+    JRadioButton male,female;
+    
+    JFrame frame3;
+    JTextField year,month,days;
+    JLabel yearl,monthl,daysl;
+    JTextField year1,month1,days1;
+    JLabel yearl1,monthl1,daysl1;
+    JButton result;
+    
+    
+    
+    
+    
+    mrDoctor() {
+        
+        frame1 = new JFrame ("Mr.Doctor");
+        frame1.setSize(400,600);
+        //frame1.setIconImage(image);
+        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setLayout(null);
+        //lebeling of text
+        entry = new JLabel("Enter your username & password ");
+        entry.setBounds(95,40,200,30);
+        frame1.add(entry);
+        
+        userNamel = new JLabel("User Name ");
+        userNamel.setBounds(10,100,100,30);
+        frame1.add(userNamel);
+        
+        passwordl = new JLabel("Password ");
+        passwordl.setBounds(10,150,100,30);
+        frame1.add(passwordl);
+        
+        createAccountl = new JLabel("Click to open a new Account");
+        createAccountl.setBounds(10,500,300,40);
+        frame1.add(createAccountl);
+        
+        //textBox
+        userName = new JTextField();
+        userName.setBounds(200,105,150,20);
+        frame1.add(userName);
+        
+        password = new JTextField();
+        password.setBounds(200,155,150,20);
+        frame1.add(password);
+        
+        //Button
+        login = new JButton("Login ");
+        login.setBounds(150,220,100,30);
+        login.addActionListener(this);
+        frame1.add(login);
+        
+        register = new JButton("Registration");
+        register.setBounds(250,505,120,25);
+        register.addActionListener(this);
+        frame1.add(register);
+        
+        frame1.setVisible(true);
+        //frame1.getContentPane().setBackground(Color.BLACK);
+               
+        
+        frame2 = new JFrame ("Registration");
+        frame2.setSize(800,600);
+        //frame2.setIconImage(image);
+        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame2.setLayout(null);
+        
+        
+        //label for registration page
+        
+        emaill = new JLabel("Email/phone :");
+        emaill.setBounds(10,100,100,30);
+        frame2.add(emaill);
+        
+        firstNamel = new JLabel("First Name :");
+        firstNamel.setBounds(10,150,150,30);
+        frame2.add(firstNamel);
+        
+        lastNamel = new JLabel("Last Name :");
+        lastNamel.setBounds(400,150,150,30);
+        frame2.add(lastNamel);
+        
+        adressl = new JLabel("Adress :");
+        adressl.setBounds(10,200,100,30);
+        frame2.add(adressl);
+        
+        cityl = new JLabel("City :");
+        cityl.setBounds(400,200,50,30);
+        frame2.add(cityl);
+        
+        agel = new JLabel("Age :");
+        agel.setBounds(10,250,50,30);
+        frame2.add(agel);
+        
+        genderl = new JLabel("Gender :");
+        genderl.setBounds(400,250,50,30);
+        frame2.add(genderl);
+
+        password2l = new JLabel("Password :");
+        password2l.setBounds(10,420,150,20);
+        frame2.add(password2l);
+        
+        //TextField
+        email = new JTextField();
+        email.setBounds(170,105,150,30);
+        frame2.add(email);
+        
+        firstName = new JTextField();
+        firstName.setBounds(170,155,150,30);
+        frame2.add(firstName);
+        
+        lastName = new JTextField();
+        lastName.setBounds(570,155,150,30);
+        frame2.add(lastName);
+        
+        adress = new JTextField();
+        adress.setBounds(170,205,150,30);
+        frame2.add(adress);
+        
+        city = new JTextField();
+        city.setBounds(570,205,50,30);
+        frame2.add(city);
+        
+        age = new JTextField();
+        age.setBounds(170,255,50,30);
+        frame2.add(age);
+        
+        password2 = new JTextField();
+        password2.setBounds(170,425,150,30);
+        frame2.add(password2);
+        
+        //Button
+        submit = new JButton("Submit");
+        submit.setBounds(10,480,100,40);
+        frame2.add(submit);
+        
+        calculator = new JButton("Click Here to Calculate your age");
+        calculator.setBounds(10,300,300,20);
+        calculator.addActionListener(this);
+        frame2.add(calculator);
+        
+        //radioBUtton
+        male = new JRadioButton("Male");
+        male.setBounds(570,263,20,10);
+        frame2.add(male);
+        
+        female = new JRadioButton("Female");
+        female.setBounds(570,285,20,10);
+        frame2.add(female);
+        
+        //Calculator
+        frame3 = new JFrame ("Age Calculator");
+        frame3.setSize(400,400);
+        //frame3.setIconImage(image);
+        //frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame3.setLayout(null);
+        
+        //lebel
+        yearl = new JLabel("year");
+        yearl.setBounds(10,10,50,20);
+        frame3.add(yearl);
+        
+        monthl = new JLabel("month");
+        monthl.setBounds(10,40,50,20);
+        frame3.add(monthl);
+        
+        daysl = new JLabel("Days");
+        daysl.setBounds(10,70,50,20);
+        frame3.add(daysl);
+        
+        year = new JTextField();
+        year.setBounds(100,13,50,20);
+        frame3.add(year);
+        
+        month = new JTextField();
+        month.setBounds(100,43,50,20);
+        frame3.add(month);
+        
+        days = new JTextField();
+        days.setBounds(100,73,50,20);
+        frame3.add(days);
+        
+        result = new JButton("Result");
+        result.setBounds(130,150,100,30);
+        result.addActionListener(this);
+        frame3.add(result);
+        
+        yearl1 = new JLabel("year");
+        yearl1.setBounds(10,250,50,20);
+        frame3.add(yearl1);
+        
+        monthl1 = new JLabel("month");
+        monthl1.setBounds(100,250,50,20);
+        frame3.add(monthl1);
+        
+        daysl1 = new JLabel("Days");
+        daysl1.setBounds(200,250,50,20);
+        frame3.add(daysl1);
+        //
+        year1 = new JTextField();
+        year1.setBounds(10,280,50,20);
+        year1.setEditable(false);
+        frame3.add(year1);
+        
+        month1 = new JTextField();
+        month1.setBounds(100,280,50,20);
+        month1.setEditable(false);
+        frame3.add(month1);
+        
+        days1 = new JTextField();
+        days1.setBounds(200,280,50,20);
+        days1.setEditable(false);
+        frame3.add(days1);
+        
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
+       
+        
+        if(e.getSource() == calculator)
+             frame3.setVisible(true);
+             
+
+        if(e.getSource ()== register)
+             frame2.setVisible(true);
+        
+        if(e.getSource() == result){
+             
+             int y = Integer.parseInt(year.getText());
+             int m = Integer.parseInt(month.getText());
+             int d = Integer.parseInt(days.getText());
+             
+             LocalDate mydate = LocalDate.of(y, m, d);
+             LocalDate now = LocalDate.now();
+            
+            
+             Period diff = Period.between(mydate, now);
+             
+             int resYear = diff.getYears();
+             int resMonth = diff.getMonths();
+             int resDay = diff.getDays();
+              
+             year1.setText(String.valueOf(resYear));
+             month1.setText(String.valueOf(resMonth));
+             days1.setText(String.valueOf(resDay));
+             
+             }
+                       
+    }
+
+    public static void main(String[] args) {
+        new mrDoctor();
+    }
+}
